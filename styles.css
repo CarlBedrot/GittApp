@@ -117,3 +117,49 @@ h1 {
 .label-score {
   margin-bottom: 2rem;
 }
+
+
+.highscores-list {
+  color: #eee;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.highscores-list ul {
+  list-style: none;
+}
+
+.highscores-list ul li {
+  margin-bottom: 1rem;
+}
+
+.highscores-link {
+  position: absolute;
+  top: 2rem;
+  right: 2rem; /* move the link to the right */
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 1rem 2rem; /* add some padding */
+  background-color: #333; /* optional: add a background color */
+  border-radius: 5px; /* optional: round the corners */
+}
+.highscores-link:hover {
+  background-color: #555; /* darken the background on hover */
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 7px solid #eee;
+}
+
+footer a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 2rem;
+}
