@@ -7,7 +7,7 @@
 
 ## Overview
 
-The application is created using vanilla JavaScript, HTML5 and CSS3. The application generates a random secret number between 1 and 20 and players have to guess that number. Each player has a score which decreases by 1 with each incorrect guess. The game also maintains a highscore to keep track of the best score.
+The application is created using vanilla JavaScript, HTML5 and CSS3. The application generates a random secret number between 1 and 20 and players have to guess that number. Each player has a score which decreases by 1 with each incorrect guess. The game also maintains a highscore to keep track of the best score. The user can also access the highscore page by pressing the link in the top right corner. To store the current highscores I will use local storage. Therefore, anyone who plays this game will have their own score board.
 
 ## Game Interface
 
