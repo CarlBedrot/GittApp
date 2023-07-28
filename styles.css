@@ -46,6 +46,10 @@ main {
 }
 
 /* ELEMENTS STYLE */
+
+.player-one{ 
+  padding-top: 10px;
+}
 h1 {
   font-size: 4rem;
   text-align: center;
@@ -103,6 +107,7 @@ h1 {
   font-family: inherit;
   padding: 2rem 3rem;
   cursor: pointer;
+  margin-bottom: 5rem;
 }
 
 .btn:hover {

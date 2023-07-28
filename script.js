@@ -23,6 +23,7 @@ function startAgain() {
     secretNumber = Math.trunc(Math.random() * 20) +1; 
     numberElement.textContent = secretNumber;
     messageElemet.textContent = 'New round! Good luck :)'
+    document.querySelector('body').style.backgroundColor = '#222'
 }
 
 function guessCheck () { 
