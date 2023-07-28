@@ -41,6 +41,7 @@ else if(guess === secretNumber){
         highscoreElement.textContent = highscore;
     }
     checkButton.disabled = true; 
+    document.querySelector('body').style.backgroundColor = '#60b347';
 }
 // if the guess is over 
 else if(guess < secretNumber  && score > 0) {
