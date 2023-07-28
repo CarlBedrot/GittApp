@@ -1,6 +1,8 @@
 # Guess My Number!
 
-"Guess My Number!" is a fun and interactive guessing game where players get to test their luck and numerical intuition by guessing a number between 1 and 20. This is a two-player game where players take turns guessing the number. The core game idea IS NOT MY OWN. I started this project by coding along in a course on udemy. My own updates are the highscore page and the time limit for each round. 
+// checking if push from branch results in pr
+
+"Guess My Number!" is a fun and interactive guessing game where players get to test their luck and numerical intuition by guessing a number between 1 and 20. This is a two-player game where players take turns guessing the number. The core game idea IS NOT MY OWN. I started this project by coding along in a course on udemy. My own updates are the highscore page and the time limit for each round.
 
 ## Overview
 
