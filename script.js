@@ -1,22 +1,22 @@
 'use strict';
 
-
-let secretNumber = Math.trunc(Math.random() * 20) +1; 
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-let highscore = 0; 
-let timer = 30; 
+let highscore = 0;
+let timer = 30;
 
-let guessElement2 = document.querySelector('.player-two-guess'); // Input field for player two
+let guessElement1 = document.querySelector('.guess');
+let guessElement2 = document.querySelector('.player-two-guess');
 
-const againButton = document.querySelector('.again'); 
-const checkButton = document.querySelector('.check'); 
-const numberElement = document.querySelector('.number'); 
-const guessElement = document.querySelector('.guess'); 
-const scoreElement = document.querySelector('.score');
-const messageElemet = document.querySelector('.message');
-const highscoreElement = document.querySelector('.highscore');
-const timerElement = document.querySelector('.timer');
-const checkButton2 = document.querySelector('.player-two-check');
+let checkButton1 = document.querySelector('.check');
+let checkButton2 = document.querySelector('.player-two-check');
+
+let againButton = document.querySelector('.again');
+let numberElement = document.querySelector('.number');
+let scoreElement = document.querySelector('.score');
+let messageElement = document.querySelector('.message');
+let highscoreElement = document.querySelector('.highscore');
+let timerElement = document.querySelector('.timer');
 
 // Initialize the timer in the UI
 timerElement.textContent = timer;
@@ -26,11 +26,11 @@ function startTimer() {
     timer--;
     timerElement.textContent = timer;
 
-    // Stop the timer when it reaches 0
-    if(timer === 0) {
+    if (timer === 0) {
         clearInterval(countdown);
-        messageElemet.textContent = 'You ran out of time...';
-        checkButton.disabled = true; 
+        messageElement.textContent = 'You ran out of time...';
+        checkButton1.disabled = true;
+        checkButton2.disabled = true;
     }
 }
 
@@ -38,122 +38,58 @@ function startTimer() {
 let countdown = setInterval(startTimer, 1000);
 
 // functions
-numberElement.textContent = secretNumber; 
+numberElement.textContent = secretNumber;
 
-function startAgain() { 
-    checkButton.disabled = false;
+function resetGame() {
+    checkButton1.disabled = false;
+    checkButton2.disabled = false;
     score = 20;
     scoreElement.textContent = score;
-    secretNumber = Math.trunc(Math.random() * 20) +1; 
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
     numberElement.textContent = secretNumber;
-    messageElemet.textContent = 'New round! Good luck :)'
-    document.querySelector('body').style.backgroundColor = '#222'
-    
+    messageElement.textContent = 'New round! Good luck :)';
+    document.querySelector('body').style.backgroundColor = '#222';
+
     // Reset the timer
-    clearInterval(countdown); // Clear the previous interval
+    clearInterval(countdown);
     timer = 30;
     timerElement.textContent = timer;
-    
-    // Start the countdown again
     countdown = setInterval(startTimer, 1000);
 }
 
-// function for guesscheck1 
-function guessCheck () { 
+function handleGuess(guessElement, checkButton) {
     let guess = Number(guessElement.value);
 
     // Reset the timer
-    clearInterval(countdown); // Clear the previous interval
+    clearInterval(countdown);
     timer = 30;
     timerElement.textContent = timer;
-
-    // Start the countdown again
     countdown = setInterval(startTimer, 1000);
 
-    if(!guess){ messageElemet.textContent = `☢️ WARNING ☢️
-    THE INPUT PROVIDED IS NaN`
-    }
-    // if the guess is correct 
-    else if(guess === secretNumber){ 
-        messageElemet.textContent = '🏆 yay, you won 🏆';
+    if (!guess) {
+        messageElement.textContent = '☢️ WARNING ☢️ THE INPUT PROVIDED IS NaN';
+    } else if (guess === secretNumber) {
+        messageElement.textContent = '🏆 yay, you won 🏆';
         guessElement.value = '';
-        console.log(score);
-        if(score > highscore){ 
-            highscore = score; 
+
+        if (score > highscore) {
+            highscore = score;
             highscoreElement.textContent = highscore;
         }
-        checkButton.disabled = true; 
+
+        checkButton.disabled = true;
         document.querySelector('body').style.backgroundColor = '#60b347';
-    }
-    // if the guess is over 
-    else if(guess < secretNumber  && score > 0) {
-        messageElemet.textContent = 'Too low, try a higher number'
-        score --; 
+    } else if (guess !== secretNumber && score > 0) {
+        messageElement.textContent = guess < secretNumber ? 'Too low, try a higher number' : 'Too high, try a lower number';
+        score--;
         scoreElement.textContent = score;
         guessElement.value = '';
-    }
-    // if the guess is under 
-
-    else if(guess > secretNumber && score > 0) {
-        messageElemet.textContent = 'Too high, try a higher number';
-        score --; 
-        scoreElement.textContent = score;
+    } else {
+        messageElement.textContent = 'You lose...';
         guessElement.value = '';
-    }
-    else { 
-        messageElemet.textContent = 'You lose...'
-        guessElement.value = '';
-    }
-
-}
-
-function guessCheck2 () { 
-    let guess = Number(guessElement2.value);
-
-    // Reset the timer
-    clearInterval(countdown); // Clear the previous interval
-    timer = 30;
-    timerElement.textContent = timer;
-
-    // Start the countdown again
-    countdown = setInterval(startTimer, 1000);
-
-    if(!guess){ 
-        messageElemet.textContent = `☢️ WARNING ☢️ THE INPUT PROVIDED IS NaN`
-    }
-    // if the guess is correct 
-    else if(guess === secretNumber){ 
-        messageElemet.textContent = '🏆 yay, you won 🏆';
-        guessElement2.value = '';
-        console.log(score);
-        if(score > highscore){ 
-            highscore = score; 
-            highscoreElement.textContent = highscore;
-        }
-        checkButton2.disabled = true; 
-        document.querySelector('body').style.backgroundColor = '#60b347';
-    }
-    // if the guess is over 
-    else if(guess < secretNumber  && score > 0) {
-        messageElemet.textContent = 'Too low, try a higher number'
-        score --; 
-        scoreElement.textContent = score;
-        guessElement2.value = '';
-    }
-    // if the guess is under 
-    else if(guess > secretNumber && score > 0) {
-        messageElemet.textContent = 'Too high, try a lower number';
-        score --; 
-        scoreElement.textContent = score;
-        guessElement2.value = '';
-    }
-    else { 
-        messageElemet.textContent = 'You lose...'
-        guessElement2.value = '';
     }
 }
 
-
-checkButton2.addEventListener('click',guessCheck2);
-checkButton.addEventListener('click', guessCheck);
-againButton.addEventListener('click', startAgain);
+checkButton1.addEventListener('click', function () { handleGuess(guessElement1, checkButton1) });
+checkButton2.addEventListener('click', function () { handleGuess(guessElement2, checkButton2) });
+againButton.addEventListener('click', resetGame);
