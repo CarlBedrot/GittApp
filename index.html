@@ -1,1 +1,48 @@
-<h1> This is a header </h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Guess My Number!</title>
+  </head>
+  <body>
+    <header>
+      <h1>Guess My Number!</h1>
+      <p class="between">(Between 1 and 20)</p>
+      <button class="btn again">Again!</button>
+      <div class="number">?</div>
+    </header>
+    <main>
+      <div class="left">
+        <section>
+          <p class="player-one hidden"> Player one turn</p>
+          <input type="number" class="guess" />
+          <button class="btn check">Check!</button>
+        </section>
+        <p class="label-timer">⏱️ Time Left: <span class="timer">30</span></p>
+
+        <!-- Player 2 section -->
+        <section class="player-two-section">
+          <p class="player-two hidden"> Player two turn</p>
+          <input type="number" class="guess player-two-guess" />
+          <button class="btn check player-two-check">Check!</button>
+        </section>
+      </div>
+      
+      <section class="right">
+        <div class="score-wrapper">
+          <p class="message">Start guessing...</p>
+          <p class="label-timer">⏱️ Time Left: <span class="timer">30</span></p>
+          <p class="label-score">💯 Score: <span class="score">20</span></p>
+          <p class="label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+        </div>
+      </section>
+    </main>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
