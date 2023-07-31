@@ -3,7 +3,6 @@
 // checking if push from branch results in pr
 // Merge conflict time baby?
 // Merge conflict baby, lets get it. Big one.
-// Do you ever learn?
 
 "Guess My Number!" is a fun and interactive guessing game where players get to test their luck and numerical intuition by guessing a number between 1 and 20. This is a two-player game where players take turns guessing the number. The core game idea IS NOT MY OWN. I started this project by coding along in a course on udemy. My own updates are the highscore page and the time limit for each round.
 
@@ -59,3 +58,5 @@ Enjoy the game and may the odds be ever in your favor!
 
 I am testing and experimenting with conflicts and commits
 Adding a new line of code!
+adding a line here
+Conflict
