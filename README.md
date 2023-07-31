@@ -54,3 +54,7 @@ This project is licensed under the terms of the MIT license.
 If you encounter any bugs or issues, feel free to open an issue in the repository.
 
 Enjoy the game and may the odds be ever in your favor!
+
+## New test
+
+I am testing and experimenting with conflicts and commits
